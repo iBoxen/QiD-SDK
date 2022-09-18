@@ -1,15 +1,14 @@
 # 1.0.0
 
-## Binaries
+### Binaries
 - [android-release.aar](./android-release.aar)
 - [iOS](./ios)
 
-## Installation
+### Installation
 
-## Helper packages
+### Helper packages
 - [ReactNative](./ReactNative)
 
-## Implementations
 ### React Native
 TODO: Beskriv implementation av SDK m.h.a RN
 
@@ -25,7 +24,7 @@ TODO: Beskriv implementation av SDK m.h.a RN
 
 `isDoorClosed`
 
-## Android requirements
+### Android requirements
 Requires the app to have the following permissions in manifest & allowed by user:
 
 `   <uses-permission android:name="android.permission.INTERNET" />
@@ -40,6 +39,6 @@ Requires the app to have the following permissions in manifest & allowed by user
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 `
 
-## iOS requirements 
+### iOS requirements 
 
-## Version changes & compatibility
+### Version changes & compatibility
