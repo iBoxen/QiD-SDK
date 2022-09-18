@@ -1,9 +1,16 @@
 # 1.0.0
 
-## binaries
+## Binaries
 - [android-release.aar](./android-release.aar)
 - [iOS](./ios)
-## helpers
+
+## Installation
+## Helper packages
 - [ReactNative](./ReactNative)
 
-## functions
+## Implementations
+### React Native
+TODO: Beskriv implementation av SDK m.h.a RN
+
+
+## Changes & compatibility
