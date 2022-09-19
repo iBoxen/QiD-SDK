@@ -5,7 +5,7 @@
 - [iOS](./ios)
 
 ### Installation
-- ReactNative: npm install "package name"
+- ReactNative: npm install "TBA package name"
 
 ## Examples
 ### React Native
@@ -89,6 +89,19 @@ public Boolean locationServicesEnabled() {
     Boolean enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
     return enabled;
+}
+```
+
+Example check if Android Bluetooth is enabled:
+
+```java
+public Boolen bluetoothEnabled() {
+    BluetoothAdapter mBluetoothAdapter;
+    BluetoothManager mBluetoothManager = (BluetoothManager) ctx.getSystemService(ctx.BLUETOOTH_SERVICE);
+
+    mBluetoothAdapter = (BluetoothAdapter) mBluetoothManager.getAdapter();
+
+    return mBluetoothAdapter.isEnabled();
 }
 ```
 
