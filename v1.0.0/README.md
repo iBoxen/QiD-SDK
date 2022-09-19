@@ -48,9 +48,13 @@ Constructing a new iBoxen consumer object used for interacting with iBoxen syste
 Initiate Bluetooth
 
 
-`Promise getParcels()`
+`Promise getActiveParcels()`
 
-Get parcels for this iBoxen.Consumer
+Get this consumer's parcels eligible for opening a locker
+
+`Promise getArchivedParcels()`
+
+Get this consumer's archived parcels not eligible for opening a locker
 
 `Promise parcel.openLocker()`
 
