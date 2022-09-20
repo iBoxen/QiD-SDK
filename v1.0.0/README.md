@@ -7,10 +7,11 @@
 ### Installation
 - ReactNative: npm install "TBA package name"
 
-## Examples
-### React Native
 
-Example code:
+&nbsp;
+# Examples
+## React Native
+
 ```tsx
 import iBoxen, { Parcel } from "@iboxen/react-native-sdk";
 
@@ -65,12 +66,18 @@ Open the parcel's locker
 
 Check if the parcel's locker door has been closed
 
+`Promise parcel.setCollected()`
+
+Set parcel as collected, deleting the user's digital key
+
 &nbsp;
 
 ---
 &nbsp;
 
-### Android requirements
+## Requirements
+
+### Android
 Requires the app to have the following permissions in manifest & allowed by user:
 
 ```xml   
@@ -96,7 +103,7 @@ public Boolean locationServicesEnabled() {
 }
 ```
 
-Example check if Android Bluetooth is enabled:
+Check if Android Bluetooth is enabled. Examble Java code:
 
 ```java
 public Boolen bluetoothEnabled() {
@@ -109,6 +116,6 @@ public Boolen bluetoothEnabled() {
 }
 ```
 
-### iOS requirements 
+### iOS 
 
 ### Version changes & compatibility
