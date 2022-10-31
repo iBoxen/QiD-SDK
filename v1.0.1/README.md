@@ -7,6 +7,11 @@
 ### Installation
 - ReactNative: npm install "TBA package name"
 
+### Flow charts
+**Open locker**
+![open locker flow](https://github.com/iBoxen/QiD-SDK/blob/master/v1.0.1/open-locker-flow.png "flow")
+
+
 
 &nbsp;
 # Examples
