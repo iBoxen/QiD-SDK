@@ -10,6 +10,55 @@
 
 &nbsp;
 # Examples
+
+## Native
+**Create instance of SDK**
+```java
+import com.qlocxiboxen.sdk.*;
+BluetoothAdapter mBluetoothAdapter;
+BluetoothManager mBluetoothManager;
+
+Context mContext;
+QlocxLogger mLogger = new QlocxLogger(mContext);
+
+QlocxInterface mQlocxInterface = new QlocxInterface(mBluetoothAdapter, mBluetoothManager, mLogger);
+```
+
+**Get nearby locker BLE names**
+
+These names can later be used to query iBoxen system for further information
+```java
+boolean shouldCleanCache = false;
+mQlocxInterface.GetPeripherals(shouldCleanCache, new QlocxInterface.PeripheralScanCallback() {
+    @Override
+    public void result(ArrayList <String> deviceNames) {}
+
+    @Override
+    public void deviceResult(ArrayList <BluetoothDevice> devices) {}
+});
+```
+
+**Send payload to locker**
+
+```java
+// payload is an encrypted hex string
+String payload = "cc388cd03aed9e65917cad745dd755955328ed212c725ae804bed85fc";
+
+// the generic object is passed back in the callback, can be any that the implementator chooses
+Object genericObject = new Object();
+
+mQlocxInterface.sendSequencePayload(payload, 2500, genericObject, 0, new QlocxInterface.SequenceCallback() {
+    // returnObject is the same as genericObject above
+    @Override
+    public void result(byte[] result, Object returnObject) {}
+
+    @Override
+    public void error(QlocxException exception, Object returnObject) {}
+});
+```
+
+---
+
 ## React Native
 
 ```tsx
