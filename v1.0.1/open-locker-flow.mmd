@@ -1,0 +1,20 @@
+```mermaid
+sequenceDiagram
+
+    participant SDK
+    participant Implementer
+    participant iBoxen
+
+    Note over Implementer: Decice parcelID to be fetched from iBoxen
+
+    Implementer->>iBoxen: Request encrypted key for parcel
+    activate iBoxen
+    iBoxen->>Implementer: Return encrypted key
+    deactivate iBoxen
+
+    Implementer-->>+SDK: Use key in method sendSequencePayload
+    SDK-->>-Implementer: Return SDK's result
+    Implementer-->>iBoxen: Send result to iBoxen
+
+    Note over Implementer: Handle action result in app
+```
