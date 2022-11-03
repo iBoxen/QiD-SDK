@@ -5,7 +5,7 @@
 - [iOS](./ios)
 
 ### Installation
-- ReactNative: npm install "TBA package name"
+- ReactNative: npm install @iboxen/react-native-sdk
 
 ## Flow charts
 Only applicable for the Native implementations of the SDK, not ReactNative
@@ -106,7 +106,6 @@ Constructing a new iBoxen consumer object used for interacting with iBoxen syste
 `void initBluetooth()`
 
 Initiate Bluetooth
-
 
 `Promise iBoxen.getParcel(parcelId)`
 
