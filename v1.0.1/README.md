@@ -109,7 +109,10 @@ Initiate Bluetooth
 
 `Promise iBoxen.getParcel(parcelId)`
 
-Get parcel
+Get parcel payload
+
+`Promise iBoxen.loadParcelPayload(paylaod)`
+Load parcel payload
 
 `Promise parcel.openLocker()`
 
