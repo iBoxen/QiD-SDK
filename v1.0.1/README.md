@@ -111,7 +111,7 @@ Initiate Bluetooth
 
 Get parcel payload
 
-`Promise iBoxen.loadParcelPayload(paylaod)`
+`Promise iBoxen.loadParcelPayload(payload)`
 
 Load parcel payload
 
