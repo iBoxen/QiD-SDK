@@ -107,10 +107,6 @@ Constructing a new iBoxen consumer object used for interacting with iBoxen syste
 
 Initiate Bluetooth
 
-`Promise iBoxen.getParcel(parcelId)`
-
-Get parcel payload
-
 `Promise iBoxen.loadParcelPayload(payload)`
 
 Load parcel payload
