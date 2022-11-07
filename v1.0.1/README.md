@@ -9,10 +9,10 @@
 
 ## Flow charts
 Only applicable for the Native implementations of the SDK, not ReactNative
+![open locker flow](./open-locker-flow.png "flow")
 
 **Open locker**
 
-![open locker flow](./open-locker-flow.png "flow")
 
 
 
@@ -69,6 +69,9 @@ mQlocxInterface.sendSequencePayload(payload, 2500, genericObject, 0, new QlocxIn
 
 ## React Native
 
+![open locker flow](./open-locker-flow.png "flow")
+
+
 ```tsx
 import iBoxen, { Parcel } from "@iboxen/react-native-sdk";
 
@@ -83,7 +86,10 @@ const App = () => {
 
   useEffect(() => {
     // get parcel
-    iBoxenInterface.getParcel("1Z8E444V0497700608").then(setParcel)
+    const parcelData = await implementorApi.getParcel("1Z8E444V0497700608")
+
+    // load it
+    const parcel = iBoxenInterface.loadParcelData(parcelData)
   }, [])
 
   return (
@@ -107,7 +113,7 @@ Constructing a new iBoxen consumer object used for interacting with iBoxen syste
 
 Initiate Bluetooth
 
-`Promise iBoxen.loadParcelPayload(payload)`
+`Promise iBoxen.loadParcelData(payload)`
 
 Load parcel payload
 
