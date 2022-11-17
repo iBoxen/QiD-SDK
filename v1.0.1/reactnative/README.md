@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     // get parcel
-    const parcelData = await implementorApi.getParcel("1Z8E444V0497700608")
+    const parcelData = await iBoxenInterface.getParcel("1Z8E444V0497700608")
 
     // load it
     const parcel = iBoxenInterface.loadParcelData(parcelData)
