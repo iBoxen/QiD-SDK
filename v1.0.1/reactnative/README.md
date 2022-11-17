@@ -18,18 +18,18 @@ const App = () => {
 
   useEffect(() => {
     // get parcel
-    const parcelData = await iBoxenInterface.getParcel("1Z8E444V0497700608")
+    const parcelPayload = await iBoxenInterface.getPayload("1Z8E444V0497700608")
 
     // load it
-    const parcel = iBoxenInterface.loadParcelData(parcelData)
+    const parcelPayload = iBoxenInterface.loadParcelData(parcelData)
   }, [])
 
   return (
-    <View key={parcel._id}>
-      <Text>{parcel.parcelId}</Text>
-      <Button title="Open locker" onPress={parcel.openLocker} />
-      <Button title="Sense door closed" onPress={parcel.isDoorClosed} />
-      <Button title="Set status collected" onPress={parcel.setCollected} />
+    <View key={parcelData._id}>
+      <Text>{parcelData.parcelId}</Text>
+      <Button title="Open locker" onPress={parcelData.openLocker} />
+      <Button title="Sense door closed" onPress={parcelData.isDoorClosed} />
+      <Button title="Set status collected" onPress={parcelData.setCollected} />
     </View>
   )
 }
