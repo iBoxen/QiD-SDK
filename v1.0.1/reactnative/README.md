@@ -5,31 +5,41 @@
 
 
 ```tsx
-import iBoxen, { Parcel } from "@iboxen/react-native-sdk";
+import iBoxen from '@iboxen/react-native-sdk';
 
 const TOKEN = "" // JWT
-const ENV = "production" // "production" | "staging"
+const ENV = "staging" // "production" | "staging"
+
+iBoxen.init(TOKEN, { env: ENV })
 
 // instantiate a new iboxen object
-const iBoxenInterface = new iBoxen(TOKEN, ENV) 
-
 const App = () => {
-  const [parcel, setParcel] = useState<Parcel>(null)
-
+  const [locker, setLocker] = useState<Parcel>(null)
+  
   useEffect(() => {
-    // get parcel
-    const parcelPayload = await iBoxenInterface.getPayload("1Z8E444V0497700608")
+    // initiate iBoxen bluetooth
+    await iBoxen.initBluetooth()
 
-    // load it
-    const parcelPayload = iBoxenInterface.loadParcelData(parcelData)
+    // get payloads from backend
+    const payloads = await fetch()
+
+    // get iBoxen locker
+    const locker = iBoxen.getLocker(payloads)
+    setLocker(locker)
+
+    // if successful parcel delivery, send status till iBoxen backend
   }, [])
 
+  const isDoorClosed = () => {
+    if (await locker.isDoorClosed()) {
+      // OPEN!
+    }
+  }
+
   return (
-    <View key={parcelData._id}>
-      <Text>{parcelData.parcelId}</Text>
-      <Button title="Open locker" onPress={parcelData.openLocker} />
-      <Button title="Sense door closed" onPress={parcelData.isDoorClosed} />
-      <Button title="Set status collected" onPress={parcelData.setCollected} />
+    <View>
+      <Button title="Open locker" onPress={locker.open} />
+      <Button title="Sense door closed" onPress={isDoorClosed} />
     </View>
   )
 }
@@ -37,7 +47,27 @@ const App = () => {
 ---
 &nbsp;
 
-`iBoxen new iBoxen(jwt token, environment)`
+```ts
+class SDKLogger extends iBoxenLogger {
+  private logLevelTranslation = {
+    [iBoxenLoggerLogLevel.DEBUG]: LogLevel.Debug,
+    [iBoxenLoggerLogLevel.ERROR]: LogLevel.Error,
+    [iBoxenLoggerLogLevel.INFO]: LogLevel.Info,
+    [iBoxenLoggerLogLevel.WARN]: LogLevel.Warning,
+  }
+
+  print(level: iBoxenLoggerLogLevel, ...messages: any[]): void {
+      if (this.logLevelTranslation[level]) {
+        // do logging
+      }
+  }
+}
+```
+
+---
+&nbsp;
+
+`iBoxen.init(JWT, { env: <environment>, logger: <implementation of SDKLogger> })`
 
 Constructing a new iBoxen consumer object used for interacting with iBoxen system.
 
@@ -45,21 +75,6 @@ Constructing a new iBoxen consumer object used for interacting with iBoxen syste
 
 Initiate Bluetooth
 
-`Promise iBoxen.loadParcelData(payload)`
-
-Load parcel payload
-
-`Promise parcel.openLocker()`
-
-Open the parcel's locker
-
-
-`Promise parcel.isDoorClosed()`
-
-Check if the parcel's locker door has been closed
-
-`Promise parcel.setCollected()`
-
-Set parcel as collected, deleting the user's digital key
+`Promise locker.open()`
 
 &nbsp;
