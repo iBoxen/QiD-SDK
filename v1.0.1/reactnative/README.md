@@ -67,14 +67,26 @@ class SDKLogger extends iBoxenLogger {
 ---
 &nbsp;
 
+Initiate iBoxen SDK
+
 `iBoxen.init(JWT, { env: <environment>, logger: <implementation of SDKLogger> })`
 
-Constructing a new iBoxen consumer object used for interacting with iBoxen system.
+<br/>
+Initiate iBoxen Bluetooth
 
 `void initBluetooth()`
 
-Initiate Bluetooth
+<br/>
+Create locker object
+
+`const locker = iBoxen.getLocker(payloads)`
+
+<br/>
+Open locker
 
 `Promise locker.open()`
 
-&nbsp;
+<br/>
+Detect locker door closed
+
+`Promise: boolean locker.isDoorClosed()`
