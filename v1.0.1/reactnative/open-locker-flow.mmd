@@ -1,22 +1,24 @@
 ```mermaid
 sequenceDiagram
-    note over SDK, App: iBoxen = new SDK(ENV)
+    note over SDK, App: iBoxen.init(env, options)
 
     App->>Backend: Select a parcel
-    Backend->>iBoxen: GET /parcel/{parcelId}
-    iBoxen->>Backend: Return parcel data: ParcelData
+    Backend->>iBoxen: GET /payloads/{parcelId}
+    iBoxen->>Backend: Return payload data
 
-    Backend->>App: Return parcel data: ParcelData 
-    note over App: parcel = iBoxen.loadParcelPayload(ParcelData)
-    note over App: *Customer wants to open locker*
-    App->>+SDK: parcel.openLocker()
-    SDK->>-App: Result of openLocker
+    Backend->>App: Return payload data
+    note over App: Initiate locker object<br>const locker = iBoxen.getLocker(payloads)
+    
+    note over App: Flow: App should open locker
+    App->>+SDK: locker.open()
+    SDK->>-App: Result of open()
 
-    note over App: Detect door closed
+    note over App: Flow: App should detect door closed
 
-    App->>+SDK: parcel.isDoorClosed()
-    SDK->>-App: Result of isDoorClosed
+    App->>+SDK: locker.isDoorClosed()
+    SDK->>-App: Result of isDoorClosed()
 
-    note over App: *Customer finished with parcel*
-    SDK->>iBoxen: parcel.setCollected()
+    note over App: Flow: Customer is finished with locker transaction
+    App->>Backend: Send parcel status
+    Backend->>iBoxen: Send parcel status
 ```

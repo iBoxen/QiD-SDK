@@ -6,6 +6,6 @@
   },
   "scripts": {
     "test":"TARGET_VERSION=v1.0.1 node generate.js",
-    "gen-mermaid":"TARGET_VERSION=v1.0.1 node generate"
+    "gen-mermaid":"TARGET_VERSION=v1.0.1/reactnative node generate"
   }
 }
