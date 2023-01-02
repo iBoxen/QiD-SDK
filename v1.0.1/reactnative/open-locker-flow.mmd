@@ -1,6 +1,6 @@
 ```mermaid
 sequenceDiagram
-    note over SDK, App: iBoxen.init(env, options)
+    note over SDK, App: iBoxen.init(token, options)
 
     App->>Backend: Select a parcel
     Backend->>iBoxen: GET /payloads/{parcelId}
