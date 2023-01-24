@@ -32,7 +32,7 @@ const App = () => {
 
   const isDoorClosed = () => {
     if (await locker.isDoorClosed()) {
-      // OPEN!
+      // all doors are closed
     }
   }
 
