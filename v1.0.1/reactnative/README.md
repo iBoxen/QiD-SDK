@@ -1,48 +1,69 @@
-
 # React Native implementation
 
 ![open locker flow](./open-locker-flow.png "flow")
 
+## Install 
+
+`npm install @iboxen/react-native-sdk`
+
+## Sample app
 
 ```tsx
 import iBoxen from '@iboxen/react-native-sdk';
+import React, { useEffect, useState } from 'react';
+import {
+  Button,
+  SafeAreaView,
+  ScrollView,
+  Platform,
+  PermissionsAndroid
+} from 'react-native';
 
 const TOKEN = "" // JWT
 const ENV = "staging" // "production" | "staging"
 
 iBoxen.init(TOKEN, { env: ENV })
 
-// instantiate a new iboxen object
-const App = () => {
-  const [locker, setLocker] = useState<Parcel>(null)
-  
+import PAYLOADS from '../PAYLOADS' // from your backend
+
+function App(): JSX.Element {
+  const [locker, setLocker] = useState()
+
   useEffect(() => {
-    // initiate iBoxen bluetooth
-    await iBoxen.initBluetooth()
+    Platform.OS === 'android' &&
+      PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN!,
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT!,
+        PermissionsAndroid.PERMISSIONS.CAMERA!,
+        PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION!,
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION!,
+      ]);
 
-    // get payloads from backend
-    const payloads = await fetch()
+    iBoxen.initBluetooth()
 
-    // get iBoxen locker
-    const locker = iBoxen.getLocker(payloads)
-    setLocker(locker)
-
-    // if successful parcel delivery, send status till iBoxen backend
+    setLocker(iBoxen.getLocker(PAYLOADS))
   }, [])
 
-  const isDoorClosed = () => {
-    if (await locker.isDoorClosed()) {
-      // all doors are closed
-    }
-  }
-
   return (
-    <View>
-      <Button title="Open locker" onPress={locker.open} />
-      <Button title="Sense door closed" onPress={isDoorClosed} />
-    </View>
-  )
+    <SafeAreaView>
+      <ScrollView>
+        <Button
+          onPress={() => locker.open()}
+          title="open"
+          color="#841584"
+        />
+        <Button
+          onPress={() => locker.isDoorClosed()}
+          title="isDoorClosed"
+          color="#841584"
+        />
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
+
+export default App;
+
 ```
 ---
 &nbsp;
@@ -72,12 +93,12 @@ Initiate iBoxen SDK
 `iBoxen.init(JWT, { env: <environment>, logger: <implementation of SDKLogger> })`
 
 <br/>
-Initiate iBoxen Bluetooth
+Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-functionality
 
 `void initBluetooth()`
 
 <br/>
-Create locker object
+Get locker instance from payloads
 
 `const locker = iBoxen.getLocker(payloads)`
 
