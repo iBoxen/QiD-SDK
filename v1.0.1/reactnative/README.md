@@ -99,9 +99,15 @@ Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-fu
 
 <br/>
 
+Get nearby peripherals
+
+`Promise<String[]> iBoxen.getPeripherals()`
+
+<br/>
+
 Connect to peripheral
 
-`Promise<boolean> connect(String: peripheralName)`
+`Promise<boolean> iBoxen.connect(String: peripheralName)`
 
 <br/>
 Get locker instance from payloads
