@@ -122,4 +122,4 @@ Open locker
 <br/>
 Detect locker door closed
 
-`Promise: boolean locker.isDoorClosed()`
+`Promise<boolean> locker.isDoorClosed()`
