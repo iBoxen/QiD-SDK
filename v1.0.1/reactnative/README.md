@@ -98,6 +98,12 @@ Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-fu
 `void initBluetooth()`
 
 <br/>
+
+Connect to peripheral
+
+`Promise<boolean> connect(String: peripheralName)`
+
+<br/>
 Get locker instance from payloads
 
 `const locker = iBoxen.getLocker(payloads)`
