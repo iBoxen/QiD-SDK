@@ -4,7 +4,7 @@
 
 ## Install 
 
-`npm install @iboxen/react-native-sdk`
+TBA version
 
 ## Sample app
 
