@@ -1,10 +1,13 @@
 # React Native implementation
+targetSdkVersion 33
+compileSdkVersion 33
+minSdkVersion 21
 
 ![open locker flow](./open-locker-flow.png "flow")
 
 ## Install 
 
-TBA version
+npm i @iboxen/react-native-sdk@beta
 
 ## Sample app
 
