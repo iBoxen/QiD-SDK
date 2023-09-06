@@ -73,7 +73,7 @@ export default App;
 
 Initiate iBoxen SDK
 
-`iBoxen.init(JWT, { env: <environment>, logger: <implementation of SDKLogger>, serviceId: <supplied service id> })`
+`iBoxen.init(JWT, { env: <environment>, serviceId: <supplied service id> })`
 
 <br/>
 Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-functionality
