@@ -78,7 +78,7 @@ Initiate iBoxen SDK
 <br/>
 Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-functionality. Performs Bluetooth state checks and permissions checks.
 
-`void iBoxen.initBluetooth()`
+`Primise<boolean> void iBoxen.initBluetooth()`
 
 <br/>
 
