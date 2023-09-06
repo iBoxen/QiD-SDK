@@ -78,7 +78,7 @@ Initiate iBoxen SDK
 <br/>
 Initiate iBoxen Bluetooth, required to be able to interact with the bluetooth-functionality
 
-`void initBluetooth()`
+`void iBoxen.initBluetooth()`
 
 <br/>
 
