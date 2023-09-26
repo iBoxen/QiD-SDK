@@ -7,7 +7,7 @@ minSdkVersion 21
 
 ## Install 
 
-npm i @iboxen/react-native-sdk@1.0.1
+npm i @iboxen/react-native-sdk@beta
 
 ## Sample app
 
@@ -116,8 +116,6 @@ Detect if all doors are closed
 
 __
 
-# Coming soon:
-
 ### v3 lockers specific functions
 The v3 locker is equipped with hardware that can detect WHICH doors are open/closed, unlike v2 which only can see that ANY is open/closed.
 
@@ -140,7 +138,7 @@ await locker.getOpenDoors() // [1, 3, 25]
 ```
 
 
-# Errors
+### Errors
 All SDK-interaction promises can throw the following errors:
 
 - "[iBoxenSDK] Bluetooth is not enabled"

@@ -1,0 +1,24 @@
+```mermaid
+sequenceDiagram
+    note over SDK, App: iBoxen.init(token, options)
+
+    App->>Backend: Select a parcel
+    Backend->>iBoxen: GET /payloads/{parcelId}
+    iBoxen->>Backend: Return payload data
+
+    Backend->>App: Return payload data
+    note over App: Initiate locker object<br>const locker = iBoxen.getLocker(payloads)
+    
+    note over App: Flow: App should open locker
+    App->>+SDK: locker.open()
+    SDK->>-App: Result of open()
+
+    note over App: Flow: App should detect door closed
+
+    App->>+SDK: locker.isDoorClosed()
+    SDK->>-App: Result of isDoorClosed()
+
+    note over App: Flow: Customer is finished with locker transaction
+    App->>Backend: Send parcel status
+    Backend->>iBoxen: Send parcel status
+```
