@@ -7,7 +7,7 @@ minSdkVersion 21
 
 ## Install 
 
-npm i @iboxen/react-native-sdk@beta
+npm i @iboxen/react-native-sdk@1.0.1
 
 ## Sample app
 
@@ -70,6 +70,7 @@ export default App;
 
 ---
 
+### Generic functions
 
 Initiate iBoxen SDK
 
@@ -109,9 +110,32 @@ Open locker
 `Promise locker.open()`
 
 <br/>
-Detect locker door closed
+Detect if all doors are closed
 
 `Promise<boolean> locker.isDoorClosed()`
+
+__
+
+### v3 lockers specific functions
+The v3 locker is equipped with hardware that can detect WHICH doors are open/closed, unlike v2 which only can see that ANY is open/closed.
+
+<br/>
+Detect if this specific parcel payload door is closed
+
+`Promise<boolean> locker.isDoorClosed()`
+```js
+await locker.isDoorClosed() // true
+```
+
+<br/>
+Detect which doors of v3 locker is open
+
+`Promise<Array[]> locker.getOpenDoors()`
+
+Example:
+```js
+await locker.getOpenDoors() // [1, 3, 25]
+```
 
 
 ### Errors
