@@ -25,7 +25,7 @@ import {
 const TOKEN = "" // JWT
 const ENV = "staging" // "production" | "staging"
 
-iBoxen.init(TOKEN, { env: ENV })
+iBoxen.init(TOKEN, { env: ENV, serviceId: "<YOUR SERVICE ID>" })
 
 import PAYLOADS from '../PAYLOADS' // from your backend
 
