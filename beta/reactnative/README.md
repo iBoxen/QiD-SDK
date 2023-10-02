@@ -7,7 +7,7 @@ minSdkVersion 21
 
 ## Install 
 
-npm i @iboxen/react-native-sdk@beta
+npm i @iboxen/react-native-sdk@1.0.2-beta.0
 
 ## Sample app
 
@@ -25,7 +25,7 @@ import {
 const TOKEN = "" // JWT
 const ENV = "staging" // "production" | "staging"
 
-iBoxen.init(TOKEN, { env: ENV, serviceId: "<YOUR SERVICE ID>" })
+iBoxen.init(TOKEN, { env: ENV, serviceId: "<REQUIRED SERVICE ID>" })
 
 import PAYLOADS from '../PAYLOADS' // from your backend
 
@@ -135,6 +135,16 @@ Detect which doors of v3 locker is open
 Example:
 ```js
 await locker.getOpenDoors() // [1, 3, 25]
+```
+
+
+### Mocking
+Currently the SDK supports mocking the response of a v3 locker with functions `isDoorClosed()` & `getOpenDoors()`
+```
+IBOXEN_SDK_MOCK_SDK_RESPONSES = 1 // Signifies that we are mocking responses
+IBOXEN_SDK_MOCKED_OPEN_DOORS = 2,5,6  // The mocked door state of the locker
+IBOXEN_SDK_MOCKED_OPEN_DOORS_DELAY = 1000 // The delay before we send the payload back
+IBOXEN_SDK_MOCK_V3_CARD = 1  // Enables us to run these mocks against a v1 or v2 card as if it were a v3 card
 ```
 
 
