@@ -7,7 +7,7 @@ minSdkVersion 21
 
 ## Install 
 
-npm i @iboxen/react-native-sdk@1.0.2-beta.0
+npm i @iboxen/react-native-sdk@1.0.2-beta.4
 
 ## Sample app
 
