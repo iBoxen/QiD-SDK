@@ -41,7 +41,7 @@ function App(): JSX.Element {
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION!,
       ]);
 
-    iBoxen.initBluetooth()
+    await iBoxen.initBluetooth()
 
     setLocker(iBoxen.getLocker(PAYLOADS))
   }, [])
